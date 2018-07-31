@@ -4,6 +4,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+require('dotenv').config();
 
 // Remove this line once the following warning goes away (it was meant for webpack loader authors not users):
 // 'DeprecationWarning: loaderUtils.parseQuery() received a non-string value which can be problematic,
@@ -26,7 +27,7 @@ module.exports = options => ({
   module: {
     rules: [
       {
-        test: /\.js$/, // Transform all .js files required somewhere with Babel
+        test: /\.(js|jsx)$/, // Transform all .js files required somewhere with Babel
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -37,9 +38,9 @@ module.exports = options => ({
         // Preprocess our own .css files
         // This is the place to add your own loaders (e.g. sass/less etc.)
         // for a list of loaders, see https://webpack.js.org/loaders/#styling
-        test: /\.css$/,
+        test: /\.scss$/,
         exclude: /node_modules/,
-        use: ['style-loader', 'css-loader'],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         // Preprocess 3rd party .css files located in node_modules
@@ -113,6 +114,12 @@ module.exports = options => ({
       },
     ],
   },
+
+  node: {
+    fs: 'empty',
+    child_process: 'empty',
+  },
+
   plugins: options.plugins.concat([
     new webpack.ProvidePlugin({
       // make fetch available
@@ -125,6 +132,7 @@ module.exports = options => ({
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+        YOUTUBE_API_SERVER: JSON.stringify(process.env.YOUTUBE_API_SERVER),
       },
     }),
   ]),

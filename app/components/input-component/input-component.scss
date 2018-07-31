@@ -1,0 +1,13 @@
+@import '../../scss/palette.scss';
+@import '../../scss/variables.scss';
+
+.input-component {
+  width: 100%;
+  min-width: 400px;
+}
+
+.textbox {
+  border: 1px solid $gray;
+  padding: $space;
+  width: 100%;
+}

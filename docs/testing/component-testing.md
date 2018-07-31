@@ -43,11 +43,11 @@ _Note: This is a [state**less** ("dumb") component](../js/README.md#architecture
 It might be used in another component like this:
 
 ```javascript
-// HomePage.js
+// LandingPage.js
 
 import Button from './Button';
 
-class HomePage extends React.Component {
+class LandingPage extends React.Component {
   render() {
     return <Button onClick={this.doSomething}>Click me!</Button>;
   }

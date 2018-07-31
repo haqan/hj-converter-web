@@ -1,0 +1,33 @@
+@import '../../scss/palette.scss';
+@import '../../scss/variables.scss';
+
+.download-container {
+  min-height: 200px;
+
+  p {
+    text-align: center;
+
+  }
+  .converted-audio {
+  }
+}
+
+.convert-button {
+  margin-top: $space;
+  border: 1px solid #aaa;
+  border-radius: $radius;
+  box-shadow: 0px 0px 5px $gray;
+  padding: $space;
+  width: 100%;
+  background: $color5;
+  color: $text-color;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  &.disabled {
+    background: #ddd;
+    color: #fff;
+    cursor: auto;
+  }
+}
