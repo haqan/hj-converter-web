@@ -24,20 +24,24 @@ export default class ConvertButton extends React.Component {
     const reqUrl = document.getElementById('texturl').value;
     const videoId = parse(reqUrl, true).query.v;
 
+    if (!videoId) {
+      return false;
+    }
+
     this.setState({
       infoMessage: messages.statusConverting,
       downloadUrl: null
     });
 
     // Convert to mp3
-    fetch(`${youtubeAudioServer}/convert/${videoId}`)
+    fetch(`${youtubeAudioServer}/quick/${videoId}`)
       .then(res => res.json())
       .then((jsonData) => {
         if (jsonData.file) {
           this.setState({
             infoMessage: messages.statusComplete,
             downloadTitle: jsonData.youtubeClipInfo.title,
-            downloadUrl: `${youtubeAudioServer}/${jsonData.downloadPath}`
+            downloadUrl: `${youtubeAudioServer}/${jsonData.file}`
           });
         }
       });

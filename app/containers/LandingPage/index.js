@@ -12,6 +12,7 @@
 import React from 'react';
 import InputComponent from '../../components/input-component/InputComponent';
 import ConvertButton from '../../components/convert-button/ConvertButton';
+import messages from './messages';
 
 import './landing-page.scss';
 
@@ -35,12 +36,15 @@ export default class LandingPage extends React.PureComponent {
   };
 
   render() {
-    return [
-      <h1 key="h1">Convert YouTube videos to mp3 files</h1>,
-      <form key="form" method="post" className="convert-section">
-        <InputComponent onChange={this.onChange} />
-        <ConvertButton disabled={this.state.convertButtonDisabled} />
-      </form>,
-    ];
+    return (
+      <div className="landing-page">
+        <h1>{messages.landingPageHeader}</h1>
+        <p className="introText">{messages.landingPageIntroText}</p>
+        <form key="form" method="post" className="convert-section">
+          <InputComponent onChange={this.onChange} />
+          <ConvertButton disabled={this.state.convertButtonDisabled} />
+        </form>
+      </div>
+    );
   }
 }

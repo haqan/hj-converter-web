@@ -8,6 +8,6 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.components.InputComponent.header',
-    defaultMessage: 'YouTube-link goes here',
+    defaultMessage: 'YOUTUBE LINK GOES HERE',
   },
 });

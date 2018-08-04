@@ -7,7 +7,9 @@
 }
 
 .textbox {
-  border: 1px solid $gray;
+  border: 1px solid #aaa;
+  border-radius: $radius;
   padding: $space;
   width: 100%;
+  font-size: 1.4rem;
 }
