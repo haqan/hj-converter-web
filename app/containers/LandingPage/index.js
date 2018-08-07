@@ -39,7 +39,10 @@ export default class LandingPage extends React.PureComponent {
     return (
       <div className="landing-page">
         <h1>{messages.landingPageHeader}</h1>
-        <p className="introText">{messages.landingPageIntroText}</p>
+        <div className="intro-background">
+          <p className="intro-text">{messages.landingPageIntroText}</p>
+        </div>
+
         <form key="form" method="post" className="convert-section">
           <InputComponent onChange={this.onChange} />
           <ConvertButton disabled={this.state.convertButtonDisabled} />

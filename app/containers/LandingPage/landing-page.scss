@@ -2,7 +2,7 @@
 @import '../../scss/variables.scss';
 
 #app {
-  background: $color2;
+  background: darkkhaki;
 }
 
 
@@ -11,26 +11,32 @@ body, p, h1, h2, input, button {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 44px;
   font-weight: normal;
-  color: #666;
+  color: #fff;
   margin: 0;
   text-transform: uppercase;
+  text-shadow: 0 0 8px;
 }
 
-.introText {
-  color: #333;
-  max-width: 420px;
+.intro-background {
+  background: #fff;
+  opacity: .4;
+  border-top: 1px solid #bbb;
+}
+.intro-text {
+  max-width: 320px;
   margin: 0 auto;
-  padding: $space 0;
-  color: #666;
-  font-size: .9rem;
+  padding: $space;
+  color: #000;
+  font-size: .8rem;
+
 }
 
 .main-container {
   text-align: center;
   margin: 0 auto;
-  padding: $space;
+  padding: $space 0;
   min-height: 400px;
 }
 
@@ -38,8 +44,9 @@ h1 {
   .convert-section {
     margin: 0 auto;
     padding: $space;
-    border: 1px solid #ccc;
-    border-radius: $radius;
+    border: 1px solid #bbb;
+    border-left: none;
+    border-right: none;
     background: #fff;
     width: 100%;
   }

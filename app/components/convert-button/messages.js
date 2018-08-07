@@ -11,7 +11,7 @@ export default defineMessages({
   conversionCompleted: '"{e}" has successfully been converted into pure audio',
   loading: 'Loading',
   statusIdle:
-    'Make us work! Paste link to YouTube-clip into text field and we will convert it to pure audio',
+    'Make us work! Paste link to YouTube-clip into text field and we will convert it to an mp3-file',
   statusConverting: 'Conversion started, hold on for a few seconds',
   statusComplete: 'Conversion completed successfully',
 });

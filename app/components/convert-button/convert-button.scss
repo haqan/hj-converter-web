@@ -19,12 +19,17 @@
   box-shadow: 0px 0px 5px $gray;
   padding: $space;
   width: 100%;
-  background: $color5;
-  color: $text-color;
-  font-weight: bold;
+  background: green;
+  color: #fff;
+  text-shadow: 0 0 2px;
   cursor: pointer;
   text-transform: uppercase;
 
+  &:hover,
+  &:active,
+  &:focus {
+    background: lighten(green, 2%);
+  }
   &.disabled {
     background: #ddd;
     color: #fff;

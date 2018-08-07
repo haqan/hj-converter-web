@@ -9,5 +9,5 @@ export default defineMessages({
   id: 'app.components.LandingPage.header',
   landingPageHeader: 'Get the audio',
   landingPageIntroText:
-    'Convert YouTube clips to audio files and listen to them on your smartphone or preferred audio device whenever you want to',
+    'Convert YouTube clips to mp3 audio files and listen to them on your preferred device.',
 });
