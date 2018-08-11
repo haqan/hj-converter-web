@@ -2,7 +2,8 @@
 @import '../../scss/variables.scss';
 
 #app {
-  background: darkkhaki;
+  background: #fff;
+
 }
 
 
@@ -11,25 +12,26 @@ body, p, h1, h2, input, button {
 }
 
 h1 {
-  font-size: 44px;
-  font-weight: normal;
-  color: #fff;
-  margin: 0;
+  font-size: 36px;
+  font-family: Georgia;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: $color3;
+  margin: $space 0;
   text-transform: uppercase;
-  text-shadow: 0 0 8px;
+  text-shadow: 0 0 1px;
 }
 
 .intro-background {
-  background: #fff;
-  opacity: .4;
-  border-top: 1px solid #bbb;
+  background: $color4;
+  opacity: .7;
 }
 .intro-text {
-  max-width: 320px;
+  max-width: 340px;
   margin: 0 auto;
-  padding: $space;
-  color: #000;
-  font-size: .8rem;
+  padding: $space 0;
+  color: #fff;
+  font-size: 16px;
 
 }
 
@@ -38,17 +40,21 @@ h1 {
   margin: 0 auto;
   padding: $space 0;
   min-height: 400px;
+  max-width: 720px;
 }
 
 .landing-page {
   .convert-section {
     margin: 0 auto;
     padding: $space;
-    border: 1px solid #bbb;
-    border-left: none;
-    border-right: none;
     background: #fff;
     width: 100%;
   }
+}
 
+
+@media screen and (min-width: 800px) {
+  .intro-background {
+    margin: 0 $space;
+  }
 }
