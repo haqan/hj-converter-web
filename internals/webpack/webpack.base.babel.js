@@ -133,6 +133,7 @@ module.exports = options => ({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV),
         YOUTUBE_API_SERVER: JSON.stringify(process.env.YOUTUBE_API_SERVER),
+        SITE_NAME: JSON.stringify(process.env.SITE_NAME),
       },
     }),
   ]),
