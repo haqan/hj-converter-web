@@ -10,5 +10,5 @@ export default defineMessages({
   landingPageHeader: 'Get the sound',
   landingPageHeader2: 'YouTube to MP3 converter',
   landingPageIntroText:
-    'Convert YouTube video clips to MP3 files in an instant and play them in your prefered MP3 player',
+    'Convert YouTube video clips to MP3 files in an instant and play them on your preferred MP3 player',
 });
