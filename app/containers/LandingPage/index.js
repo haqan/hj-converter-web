@@ -38,7 +38,10 @@ export default class LandingPage extends React.PureComponent {
   render() {
     return (
       <div className="landing-page">
-        <h1>{process.env.SITE_NAME}</h1>
+        <h1>
+          {messages.landingPageHeader}
+          <span className="sub-header">{messages.landingPageHeader2}</span>
+        </h1>
         <div className="intro-background">
           <p className="intro-text">{messages.landingPageIntroText}</p>
         </div>

@@ -6,20 +6,34 @@
 
 }
 
+$font-family: Helvetica, Arial, Georgia, sans-serif;
+$font-color: #333;
 
 body, p, h1, h2, input, button {
-    font-family: Helvetica, Arial, Georgia, sans-serif;
+    font-family: $font-family;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
   font-family: Georgia;
   font-weight: bold;
-  letter-spacing: 5px;
+  letter-spacing: 6px;
   color: $color3;
-  margin: $space 0;
+  margin: $space 0 $space * 2 0;
   text-transform: uppercase;
-  text-shadow: 0 0 1px;
+  text-shadow: 0 0 3px #ccc;
+  display: block;
+
+  .sub-header {
+    font-family: $font-family;
+    font-weight: normal;
+    font-size: 12px;
+    display: block;
+    margin-bottom: $space;
+    text-shadow: none;
+    letter-spacing: 4px;
+    line-height: 1.8;
+  }
 }
 
 .intro-background {
@@ -31,7 +45,9 @@ h1 {
   margin: 0 auto;
   padding: $space 0;
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: $font-family;
 
 }
 

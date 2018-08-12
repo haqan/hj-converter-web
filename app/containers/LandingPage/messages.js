@@ -7,7 +7,8 @@ import { defineMessages } from 'react-intl';
 
 export default defineMessages({
   id: 'app.components.LandingPage.header',
-  landingPageHeader: 'Get the audio',
+  landingPageHeader: 'Get the sound',
+  landingPageHeader2: 'YouTube to MP3 converter',
   landingPageIntroText:
-    'Convert YouTube clips to mp3 audio files and listen to them on your preferred device.',
+    'Convert YouTube video clips to MP3 files in an instant and play them in your prefered MP3 player',
 });
