@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { parse } from 'url';
 import { FormattedMessage } from 'react-intl';
+import Spinner from '../spinner/Spinner';
 
 import messages from './messages';
 
@@ -9,12 +10,17 @@ import './convert-button.scss';
 
 const youtubeAudioServer = process.env.YOUTUBE_API_SERVER;
 
+const STATUS_IDLE = 'STATUS_IDLE';
+const STATUS_CONVERTING = 'STATUS_CONVERTING';
+const STATUS_COMPLETED = 'STATUS_COMPLETED';
+
 export default class ConvertButton extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      infoMessage: messages.statusIdle
+      infoMessage: messages.statusIdle,
+      status: STATUS_IDLE
     };
     this.handleOnClick = this.handleOnClick.bind(this);
   }
@@ -30,6 +36,7 @@ export default class ConvertButton extends React.Component {
 
     this.setState({
       infoMessage: messages.statusConverting,
+      status: STATUS_CONVERTING,
       downloadUrl: null
     });
 
@@ -40,6 +47,7 @@ export default class ConvertButton extends React.Component {
         if (jsonData.file) {
           this.setState({
             infoMessage: messages.statusComplete,
+            status: STATUS_COMPLETED,
             downloadTitle: jsonData.youtubeClipInfo.title,
             downloadUrl: `${youtubeAudioServer}/${jsonData.file}`
           });
@@ -49,7 +57,7 @@ export default class ConvertButton extends React.Component {
   }
 
   render() {
-    const { infoMessage, downloadUrl, downloadTitle } = this.state;
+    const { infoMessage, downloadUrl, downloadTitle, status } = this.state;
     const { disabled } = this.props;
 
     const className = `btn convert-button ${disabled? 'disabled' : ''}`;
@@ -58,10 +66,15 @@ export default class ConvertButton extends React.Component {
         <button type="submit" className={ className } onClick={ this.handleOnClick }>
           { messages.convert }
         </button>
-        { !downloadUrl &&
+        { status === STATUS_IDLE &&
             <p>
-              { infoMessage }
+              { messages.statusIdle }
             </p>
+        }
+        { status === STATUS_CONVERTING &&
+          <p>
+            <Spinner /> { messages.statusConverting }
+          </p>
         }
         { downloadUrl &&
             <p>
