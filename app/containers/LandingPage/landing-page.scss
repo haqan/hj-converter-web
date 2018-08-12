@@ -1,14 +1,6 @@
 @import '../../scss/palette.scss';
 @import '../../scss/variables.scss';
 
-#app {
-  background: #fff;
-
-}
-
-$font-family: Helvetica, Arial, Georgia, sans-serif;
-$font-color: #333;
-
 body, p, h1, h2, input, button {
     font-family: $font-family;
 }
@@ -44,7 +36,7 @@ h1 {
   max-width: 340px;
   margin: 0 auto;
   padding: $space 0;
-  color: #fff;
+  color: $white;
   font-size: 14px;
   font-weight: normal;
   font-family: $font-family;
@@ -62,7 +54,7 @@ h1 {
   .convert-section {
     margin: 0 auto;
     padding: $space;
-    background: #fff;
+    background: $white;
     width: 100%;
   }
 }
