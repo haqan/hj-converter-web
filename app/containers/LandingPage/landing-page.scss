@@ -5,27 +5,27 @@ body, p, h1, h2, input, button {
     font-family: $font-family;
 }
 
-h1 {
-  font-size: 32px;
+.sub-header {
+  font-size: 26px;
   font-family: Georgia;
   font-weight: bold;
   letter-spacing: 6px;
   color: $color3;
-  margin: $space 0 $space * 2 0;
+  margin: $space 0 0;
   text-transform: uppercase;
   text-shadow: 0 0 3px #ccc;
   display: block;
-
-  .sub-header {
-    font-family: $font-family;
-    font-weight: normal;
-    font-size: 12px;
-    display: block;
-    margin-bottom: $space;
-    text-shadow: none;
-    letter-spacing: 4px;
-    line-height: 1.8;
-  }
+}
+h1 {
+  font-family: $font-family;
+  font-weight: normal;
+  font-size: 12px;
+  display: block;
+  margin-bottom: $space * 2;
+  text-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding: 0;
 }
 
 .intro-background {
