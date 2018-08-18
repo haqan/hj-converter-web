@@ -13,8 +13,6 @@
   "author": "Max Stoiber",
   "license": "MIT",
   "scripts": {
-    "heroku-prebuild": "export NPM_CONFIG_PRODUCTION=false NODE_ENV=development npm install",
-    "heroku-postbuild": "export NPM_CONFIG_PRODUCTION=true; export NODE_ENV=production;",
     "analyze:clean": "rimraf stats.json",
     "preanalyze": "npm run analyze:clean",
     "analyze": "node ./internals/scripts/analyze.js",
