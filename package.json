@@ -161,7 +161,6 @@
     "lodash": "4.17.10",
     "minimist": "1.2.0",
     "prop-types": "15.6.1",
-    "rimraf": "^2.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
     "react-intl": "2.4.0",
