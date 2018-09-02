@@ -1,24 +1,12 @@
-/*
- * LandingPage
- *
- * This is the first thing users see of our App, at the '/' route
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a necessity for you then you can refactor it and remove
- * the linting exception.
- */
+import React, { Component } from "react";
 
-import React from 'react';
-import InputComponent from '../../components/input-component/InputComponent';
-import ConvertButton from '../../components/convert-button/ConvertButton';
-//import VideoCard from '../../components/video-card/VideoCard';
+import ConvertButton from './components/convert-button/ConvertButton';
+import InputComponent from './components/input-component/InputComponent';
 import messages from './messages';
 
-import './landing-page.scss';
+import './app.scss';
 
-/* eslint-disable react/prefer-stateless-function */
-export default class LandingPage extends React.PureComponent {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +14,6 @@ export default class LandingPage extends React.PureComponent {
     };
     this.onChange = this.onChange.bind(this);
   }
-
   componentDidMount() {
     console.log ('test');
   }
@@ -59,3 +46,5 @@ export default class LandingPage extends React.PureComponent {
     );
   }
 }
+
+export default App;

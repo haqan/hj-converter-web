@@ -1,9 +1,24 @@
-@import '../../scss/palette.scss';
-@import '../../scss/variables.scss';
+$color1: #23231A;
+$color2: #322F20;
+$color3: #6A5837;
+$color4: #988F2A;
+$color5: #FE5F00;
 
-body, p, h1, h2, input, button {
-    font-family: $font-family;
+$font-family: Helvetica, Arial, Georgia, sans-serif;
+$font-color: #333;
+$white: #fff;
+$radius: 4px;
+$space: 16px;
+
+body,
+p,
+h1,
+h2,
+input,
+button {
+  font-family: $font-family;
 }
+
 
 .sub-header {
   font-size: 26px;
