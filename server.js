@@ -49174,7 +49174,7 @@ var isOldIE = memoize(function () {
 	// Tests for existence of standard globals is to allow style-loader
 	// to operate correctly into non-standard environments
 	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
+	return false;
 });
 
 var getTarget = function (target) {
@@ -49353,6 +49353,9 @@ function removeStyleElement (style) {
 }
 
 function createStyleElement (options) {
+	if (typeof document === 'undefined') {
+		return null;
+	}
 	var style = document.createElement("style");
 
 	if(options.attrs.type === undefined) {
@@ -49468,7 +49471,7 @@ var replaceText = (function () {
 function applyToSingletonTag (style, index, remove, obj) {
 	var css = remove ? "" : obj.css;
 
-	if (style.styleSheet) {
+	if (style && style.styleSheet) {
 		style.styleSheet.cssText = replaceText(index, css);
 	} else {
 		var cssNode = document.createTextNode(css);
@@ -49487,12 +49490,13 @@ function applyToSingletonTag (style, index, remove, obj) {
 function applyToTag (style, obj) {
 	var css = obj.css;
 	var media = obj.media;
-
+	if (!style) {
+		return;
+	}
 	if(media) {
 		style.setAttribute("media", media)
 	}
-
-	if(style.styleSheet) {
+	if(style && style.styleSheet) {
 		style.styleSheet.cssText = css;
 	} else {
 		while(style.firstChild) {
