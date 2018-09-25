@@ -11,11 +11,10 @@ app.get("*", (req, res) => {
   res.send(`
       <!DOCTYPE html>
       <head>
-        <title>Universal Reacl</title>
+        <title>Youtube To MP3 Converter - Get the sound</title>
         <link rel="stylesheet" href="/css/main.css">
         <script src="/bundle.js" defer></script>
       </head>
-
       <body>
         <div id="root">${renderToString(<App />)}</div>
       </body>

@@ -1,16 +1,12 @@
 {
   "name": "Gettheaudio",
   "version": "3.6.0",
-  "description": "A highly scalable, offline-first foundation with the best DX and a focus on performance and best practices",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
-  },
+  "description": "UI Convert youtube video to pure audio",
   "engines": {
     "npm": ">=5",
     "node": ">=8"
   },
-  "author": "Max Stoiber",
+  "author": "Håkan Johansson",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
@@ -23,14 +19,10 @@
     "heroku-postbuild": "npm run build",
     "prebuild": "npm run build:clean",
     "build": "cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color -p --progress --hide-modules --display-optimization-bailout",
-    "build:ssr": "NODE_ENV=development webpack --config ./internals/webpack/webpack.config.js",
     "build:clean": "rimraf ./build",
     "build:dll": "node ./internals/scripts/dependencies.js",
-    "start-dev": "NODE_ENV=development webpack --mode development -w & NODE_ENV=development node server.js",
-    "start": "node ./dist/server",
-    "start:tunnel": "cross-env NODE_ENV=development ENABLE_TUNNEL=true node server",
-    "start:production": "npm run build && npm run start:prod",
-    "start:prod": "cross-env NODE_ENV=production node server",
+    "start-dev": "NODE_ENV=development webpack --mode development --env.dev -w & NODE_ENV=development node server.js --watch --progress --colors",
+    "start-prod": "NODE_ENV=production node server.js --progress --colors",
     "presetup": "npm i chalk shelljs",
     "setup": "node ./internals/scripts/setup.js",
     "postsetup": "npm run build:dll",
@@ -47,7 +39,6 @@
     "test:clean": "rimraf ./coverage",
     "test": "cross-env NODE_ENV=test jest --coverage",
     "test:watch": "cross-env NODE_ENV=test jest --watchAll",
-    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "prettify": "prettier --write"
   },
   "lint-staged": {
@@ -153,13 +144,14 @@
     "compression": "1.7.2",
     "cross-env": "5.2.0",
     "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
     "express": "4.16.3",
     "extract-text-webpack-plugin": "^4.0.0-alpha.0",
     "glob": "^7.1.2",
     "history": "4.7.2",
     "hoist-non-react-statics": "2.5.5",
     "immutable": "3.8.2",
-    "intl": "1.2.5",
+    "intl": "^1.2.5",
     "invariant": "2.2.4",
     "ip": "1.1.5",
     "lodash": "4.17.10",
@@ -171,7 +163,7 @@
     "prop-types": "15.6.1",
     "react": "16.4.1",
     "react-dom": "16.4.1",
-    "react-intl": "2.4.0",
+    "react-intl": "^2.4.0",
     "react-loadable": "5.4.0",
     "react-redux": "5.0.7",
     "react-router-dom": "4.3.1",

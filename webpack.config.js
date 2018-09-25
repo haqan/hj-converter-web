@@ -1,6 +1,13 @@
 const webpack = require("webpack");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require("autoprefixer");
+const Dotenv = require('dotenv-webpack');
+
+const plugins = [
+  new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
+
+  new Dotenv(),
+];
 
 const browserConfig = {
   entry: "./src/browser/index.js",
@@ -9,6 +16,7 @@ const browserConfig = {
     filename: "./public/bundle.js"
   },
   devtool: "cheap-module-source-map",
+  plugins: plugins, // eslint-disable-line no-use-before-define
   module: {
     rules: [
       {
@@ -113,7 +121,7 @@ const serverConfig = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-
+  plugins: plugins,
 };
 
 module.exports = [browserConfig, serverConfig];

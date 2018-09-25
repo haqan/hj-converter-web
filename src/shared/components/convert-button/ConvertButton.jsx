@@ -70,9 +70,12 @@ export default class ConvertButton extends React.Component {
             </p>
         }
         { status === STATUS_CONVERTING &&
-          <p>
-            <Spinner /> { messages.statusConverting }
-          </p>
+          <div>
+            <Spinner />
+            <p>
+              { messages.statusConverting }
+             </p>
+          </div>
         }
         { downloadUrl &&
             <p>
