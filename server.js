@@ -22,7 +22,7 @@ module.exports =
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3039b3335ee74c5ae395"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d946f670a342b57f3488"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -51108,7 +51108,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var youtubeAudioServer = "http://localhost:8080";
+var youtubeAudioServer = "https://hj-video-converter.herokuapp.com";
 
 var STATUS_IDLE = 'STATUS_IDLE';
 var STATUS_CONVERTING = 'STATUS_CONVERTING';

@@ -63,7 +63,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0f0b31fe9ad9e5a28328"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "cf96df38193d7fb19393"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -28281,7 +28281,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 
-var youtubeAudioServer = "http://localhost:8080";
+var youtubeAudioServer = "https://hj-video-converter.herokuapp.com";
 
 var STATUS_IDLE = 'STATUS_IDLE';
 var STATUS_CONVERTING = 'STATUS_CONVERTING';
