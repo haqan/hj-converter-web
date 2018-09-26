@@ -1,0 +1,154 @@
+$color1: #23231A;
+$color2: #322F20;
+$color3: #6A5837;
+$color4: #988F2A;
+$color5: #FE5F00;
+
+$font-family: Helvetica, Arial, Georgia, sans-serif;
+$font-color: #333;
+$white: #fff;
+$radius: 4px;
+$space: 16px;
+
+body,
+p,
+h1,
+h2,
+input,
+button {
+  font-family: $font-family;
+}
+
+body {
+  margin: 0;
+}
+
+.sub-header {
+  font-size: 26px;
+  font-family: Georgia;
+  font-weight: bold;
+  letter-spacing: 6px;
+  color: $color3;
+  margin: $space 0 0;
+  text-transform: uppercase;
+  text-shadow: 0 0 3px #ccc;
+  display: block;
+}
+h1 {
+  font-family: $font-family;
+  font-weight: normal;
+  font-size: 12px;
+  display: block;
+  margin-bottom: $space * 2;
+  text-shadow: none;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  padding: 0;
+}
+
+.landing-page {
+  text-align: center;
+  max-width: 712px;
+  margin: 40px auto;
+}
+.intro-background {
+  background: repeat $color4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 52 52'%3E%3Cpath fill='%23300' fill-opacity='0.07' d='M0 17.83V0h17.83a3 3 0 0 1-5.66 2H5.9A5 5 0 0 1 2 5.9v6.27a3 3 0 0 1-2 5.66zm0 18.34a3 3 0 0 1 2 5.66v6.27A5 5 0 0 1 5.9 52h6.27a3 3 0 0 1 5.66 0H0V36.17zM36.17 52a3 3 0 0 1 5.66 0h6.27a5 5 0 0 1 3.9-3.9v-6.27a3 3 0 0 1 0-5.66V52H36.17zM0 31.93v-9.78a5 5 0 0 1 3.8.72l4.43-4.43a3 3 0 1 1 1.42 1.41L5.2 24.28a5 5 0 0 1 0 5.52l4.44 4.43a3 3 0 1 1-1.42 1.42L3.8 31.2a5 5 0 0 1-3.8.72zm52-14.1a3 3 0 0 1 0-5.66V5.9A5 5 0 0 1 48.1 2h-6.27a3 3 0 0 1-5.66-2H52v17.83zm0 14.1a4.97 4.97 0 0 1-1.72-.72l-4.43 4.44a3 3 0 1 1-1.41-1.42l4.43-4.43a5 5 0 0 1 0-5.52l-4.43-4.43a3 3 0 1 1 1.41-1.41l4.43 4.43c.53-.35 1.12-.6 1.72-.72v9.78zM22.15 0h9.78a5 5 0 0 1-.72 3.8l4.44 4.43a3 3 0 1 1-1.42 1.42L29.8 5.2a5 5 0 0 1-5.52 0l-4.43 4.44a3 3 0 1 1-1.41-1.42l4.43-4.43a5 5 0 0 1-.72-3.8zm0 52c.13-.6.37-1.19.72-1.72l-4.43-4.43a3 3 0 1 1 1.41-1.41l4.43 4.43a5 5 0 0 1 5.52 0l4.43-4.43a3 3 0 1 1 1.42 1.41l-4.44 4.43c.36.53.6 1.12.72 1.72h-9.78zm9.75-24a5 5 0 0 1-3.9 3.9v6.27a3 3 0 1 1-2 0V31.9a5 5 0 0 1-3.9-3.9h-6.27a3 3 0 1 1 0-2h6.27a5 5 0 0 1 3.9-3.9v-6.27a3 3 0 1 1 2 0v6.27a5 5 0 0 1 3.9 3.9h6.27a3 3 0 1 1 0 2H31.9z'%3E%3C/path%3E%3C/svg%3E");
+  opacity: .5;
+}
+.intro-text {
+  max-width: 340px;
+  margin: 0 auto;
+  padding: $space 0;
+  color: $white;
+  font-size: 14px;
+  font-weight: normal;
+  font-family: $font-family;
+}
+
+.main-container {
+  text-align: center;
+  margin: 0 auto;
+  padding: $space 0;
+  min-height: 400px;
+  max-width: 720px;
+}
+
+.landing-page {
+  .convert-section {
+    margin: 0 auto;
+    padding: $space;
+    background: $white;
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+.spinner {
+  margin: 0 4px 0 0;
+}
+
+.input-component {
+  width: 100%;
+  min-width: 400px;
+}
+
+.textbox {
+  border: 1px solid $color3;
+  border-radius: $radius;
+  padding: $space;
+  font-size: 14px;
+}
+
+
+.download-container {
+  min-height: 200px;
+
+  div {
+    margin-top: $space;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    font-size: 13px;
+    color: #666;
+
+  }
+  .converted-audio {
+  }
+}
+
+.convert-button {
+  margin-top: $space;
+  border: 1px solid $color3;
+  border-radius: $radius;
+  padding: $space;
+  width: 100%;
+  background: $color4;
+  color: $white;
+  text-shadow: 0 0 2px;
+  cursor: pointer;
+  font-size: 26px;
+  text-transform: uppercase;
+
+  &:hover,
+  &:active,
+  &:focus {
+    box-shadow: 0px 0px 4px $color3;
+    background: lighten($color4, 2%);
+  }
+  &.disabled {
+    background: #ddd;
+    box-shadow: 0 0 0;
+    color: #fff;
+    cursor: auto;
+  }
+}
+
+
+@media screen and (min-width: 800px) {
+  .intro-background {
+    margin: 0 $space;
+  }
+}
