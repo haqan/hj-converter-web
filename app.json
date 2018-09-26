@@ -1,8 +1,7 @@
 {
   "name": "hj-converter-web",
   "description": "",
-  "scripts": {
-  },
+  "scripts": {},
   "env": {
     "NODE_ENV": {
       "required": true
@@ -14,7 +13,7 @@
       "required": true
     },
     "YOUTUBE_API_SERVER": {
-      "required": true
+      "required": false
     }
   },
   "formation": {
@@ -22,9 +21,7 @@
       "quantity": 1
     }
   },
-  "addons": [
-
-  ],
+  "addons": [],
   "buildpacks": [
     {
       "url": "https://github.com/heroku/heroku-buildpack-nodejs#v123"
