@@ -5,12 +5,13 @@ import { ServerStyleSheet } from 'styled-components'
 
 import App from "../shared/App";
 
+const sheet = new ServerStyleSheet();
 const app = express();
 
 app.use(express.static("dist"));
 
 app.get("*", (req, res) => {
-  const html = renderToString(<App />);
+  const html = renderToString(sheet.collectStyles(<App />));
 
   res.send(`
       <!DOCTYPE html>
