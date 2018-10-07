@@ -14,9 +14,7 @@ const html = renderToString(sheet.collectStyles(<App />));
 const styleTags = sheet.getStyleTags(); // or sheet.getStyleElement();
 
 app.get("*", (req, res) => {
-
-  res.send(`
-      <!DOCTYPE html>
+  res.send(`<!DOCTYPE html>
       <head>
         <title>Youtube To MP3 Converter - Get the sound</title>
         <meta name="keywords" content="YouTube to mp3, mp3 converter, YouTube mp3, YouTube to mp3 converter, convert YouTube to mp3, video to mp3, download YouTube mp3, mp3 download, mp3converter"/>
@@ -26,7 +24,7 @@ app.get("*", (req, res) => {
       </head>
       <body>
         <div id="root">${html}</div>
-        <script src="bundle.js" defer></script>
+        <script src="./bundle.js" defer></script>
       </body>
     </html>
   `);

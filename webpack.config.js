@@ -16,6 +16,7 @@ const plugins = devMode ?
   :
   [
     new Dotenv(),
+
     new UglifyJsPlugin()
   ];
 
