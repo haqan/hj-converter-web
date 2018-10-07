@@ -49,7 +49,7 @@ const modules = {
 
 const clientConfig = {
   entry: "./browser/index.js",
-  mode: "development",
+  mode: devMode ? "development" : "production",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, 'dist')
@@ -65,7 +65,7 @@ const clientConfig = {
 const serverConfig = {
   entry: "./server/index.js",
   target: "node",
-  mode: 'development',
+  mode: devMode ? "development" : "production",
   context: path.resolve(__dirname, 'src'),
   output: {
     filename: "server.js",

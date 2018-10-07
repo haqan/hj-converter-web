@@ -13,7 +13,7 @@
     "clean": "rimraf dist/*",
     "build": "npm run clean & NODE_ENV=production webpack -p",
     "start:dev": "npm run clean & NODE_ENV=development webpack --mode development & NODE_ENV=development node ./dist/server.js -- --watch --colors",
-    "start:prod": "npm run build & NODE_ENV=production & node ./dist/server.js"
+    "start:prod": "npm run build & NODE_ENV=production & node ./app/dist/server.js"
   },
   "pre-commit": "lint:staged",
   "jest": {
