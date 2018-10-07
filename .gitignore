@@ -1,6 +1,7 @@
 # Don't check auto-generated stuff into git
 build
 node_modules
+dist
 *.hot-update.*
 stats.json
 

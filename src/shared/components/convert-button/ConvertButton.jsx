@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { parse } from 'url';
 import { FormattedMessage } from 'react-intl';
-import Spinner from '../spinner/Spinner';
+import styled from 'styled-components'
 
+import globalstyles from '../../globalstyles.js';
+import Spinner from '../spinner/Spinner';
 import messages from './messages';
 
 const youtubeAudioServer = process.env.YOUTUBE_API_SERVER;
@@ -11,6 +13,50 @@ const youtubeAudioServer = process.env.YOUTUBE_API_SERVER;
 const STATUS_IDLE = 'STATUS_IDLE';
 const STATUS_CONVERTING = 'STATUS_CONVERTING';
 const STATUS_COMPLETED = 'STATUS_COMPLETED';
+
+const StyledDownloadContainer = styled.div`
+  min-height: 200px;
+
+  div {
+    margin-top: ${globalstyles.space};
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  p {
+    font-size: 13px;
+    color: #666;
+
+  }
+  .convert-button {
+    margin-top: ${globalstyles.space};
+    border: 1px solid ${globalstyles.colors.color3};
+    border-radius: ${globalstyles.borderRadius};
+    padding: ${globalstyles.space};
+    width: 100%;
+    background: ${globalstyles.colors.color4};
+    color: ${globalstyles.colors.white};
+    text-shadow: 0 0 2px;
+    cursor: pointer;
+    font-size: 26px;
+    text-transform: uppercase;
+
+    &:hover,
+    &:active,
+    &:focus {
+      box-shadow: 0px 0px 4px ${globalstyles.colors.color3};
+      background: lighten(${globalstyles.colors.color4}, 2%);
+    }
+    &.disabled {
+      background: #ddd;
+      box-shadow: 0 0 0;
+      color: #fff;
+      cursor: auto;
+    }
+  }
+`;
+
 
 export default class ConvertButton extends React.Component {
 
@@ -60,7 +106,7 @@ export default class ConvertButton extends React.Component {
 
     const className = `btn convert-button ${disabled? 'disabled' : ''}`;
     return (
-      <div className="download-container">
+      <StyledDownloadContainer>
         <button type="submit" className={ className } onClick={ this.handleOnClick }>
           { messages.convert }
         </button>
@@ -92,7 +138,7 @@ export default class ConvertButton extends React.Component {
               </a>
             </p>
         }
-      </div>
+      </StyledDownloadContainer>
     );
   }
 }

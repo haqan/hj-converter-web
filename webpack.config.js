@@ -1,127 +1,81 @@
 const webpack = require("webpack");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const autoprefixer = require("autoprefixer");
 const Dotenv = require('dotenv-webpack');
+const path = require('path');
 
-const plugins = [
-  new webpack.HotModuleReplacementPlugin(), // Tell webpack we want hot reloading
+const devMode = process.env.NODE_ENV !== 'production';
+const plugins = devMode ?
+  [
+    new Dotenv(),
 
-  new Dotenv(),
-];
+    new webpack.WatchIgnorePlugin([
+      path.join(__dirname, "node_modules")
+    ]),
+  ]
+  :
+  [
+    new Dotenv(),
 
-const browserConfig = {
-  entry: "./src/browser/index.js",
-  output: {
-    path: __dirname,
-    filename: "./public/bundle.js"
-  },
-  devtool: "cheap-module-source-map",
-  plugins: plugins, // eslint-disable-line no-use-before-define
-  module: {
-    rules: [
-      {
-        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: "file-loader",
-        options: {
-          name: "public/media/[name].[ext]",
-          publicPath: url => url.replace(/public/, "")
-        }
-      },
-      {
-         test: /\.scss$/,
-         use: [
-           {
-             loader: 'style-loader'
-           },
-             {
-             loader: 'css-loader', // translates CSS into CommonJS
-             options: {
-               sourceMap: true,
-             },
-           },
-           {
-             loader: 'sass-loader', // compiles Sass to CSS
-             options: {
-               sourceMap: true,
-             },
-           }
-         ]
-       },
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader",
-        query: { presets: ["react-app"] }
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /(node_modules)/,
+    new UglifyJsPlugin()
+  ];
+
+const modules = {
+  rules: [
+    {
+      test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+      loader: "file-loader",
+      options: {
+        name: "dist/media/[name].[ext]",
+        publicPath: url => url.replace(/dist/, "")
+      }
+    },
+    {
+      test: /\.js$/,
+      exclude: /(node_modules)/,
+      use: {
         loader: "babel-loader"
       }
-    ]
+    },
+    {
+      test: /\.jsx$/,
+      exclude: /(node_modules)/,
+      use: {
+        loader: "babel-loader"
+      }
+    }
+  ]
+};
+
+const clientConfig = {
+  entry: "./browser/index.js",
+  mode: "development",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist')
   },
+  context: path.resolve(__dirname, 'src'),
+  plugins: plugins,
+  module: modules,
   resolve: {
     extensions: ['.js', '.jsx'],
   }
 };
 
 const serverConfig = {
-  entry: "./src/server/index.js",
+  entry: "./server/index.js",
   target: "node",
+  mode: 'development',
+  context: path.resolve(__dirname, 'src'),
   output: {
-    path: __dirname,
     filename: "server.js",
-    libraryTarget: "commonjs2"
+    path: path.resolve(__dirname, 'dist')
   },
-  devtool: "cheap-module-source-map",
-  module: {
-    rules: [
-      {
-        test: [/\.svg$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: "file-loader",
-        options: {
-          name: "public/media/[name].[ext]",
-          publicPath: url => url.replace(/public/, ""),
-          emit: false
-        }
-      },
-      {
-         test: /\.scss$/,
-         use: [
-           {
-             loader: 'style-loader'
-           },
-             {
-             loader: 'css-loader', // translates CSS into CommonJS
-             options: {
-               sourceMap: true,
-             },
-           },
-           {
-             loader: 'sass-loader', // compiles Sass to CSS
-             options: {
-               sourceMap: true,
-             },
-           }
-         ]
-       },
-       {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader",
-        query: { presets: ["react-app"] }
-      },
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules)/,
-        loader: "babel-loader"
-      }
-    ]
-  },
+  module: modules,
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  plugins: plugins,
+  plugins: plugins
 };
 
-module.exports = [browserConfig, serverConfig];
+module.exports = [clientConfig, serverConfig];
