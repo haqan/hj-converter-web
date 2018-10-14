@@ -11,11 +11,10 @@
   "scripts": {
     "extract-intl": "node ./internals/scripts/extract-intl.js",
     "clean": "rimraf dist/*",
-    "build": "npm run clean && NODE_ENV=production webpack -p",
+    "build": "NODE_ENV=production webpack -p",
     "start": "node ./dist/server.js",
     "start:dev": "npm run clean && NODE_ENV=development webpack --mode development && NODE_ENV=development node ./dist/server.js -- --watch --colors",
     "heroku-postbuild": "npm run build && NODE_ENV=production && node ./dist/server.js",
-
     "start:prod": "npm run build && NODE_ENV=production node ./dist/server.js"
   },
   "jest": {
